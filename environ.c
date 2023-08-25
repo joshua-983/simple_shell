@@ -61,33 +61,32 @@ int _mysetenv(info_t *info)
  */
 int _myunsetenv(info_t *info)
 {
-	int i;
+	int au;
 
 	if (info->argc == 1)
 	{
 		_eputs("Too few arguements.\n");
 		return (1);
 	}
-	for (i = 1; i <= info->argc; i++)
-		_unsetenv(info, info->argv[i]);
+	for (au = 1; au <= info->argc; au++)
+		_unsetenv(info, info->argv[au]);
 
 	return (0);
 }
 
 /**
- * populate_env_list - populates env linked list
- * @info: Structure containing potential arguments. Used to maintain
+ * populate_env_list - populates environment list
+ * @info: Structure argument
  *          constant function prototype.
  * Return: Always 0
  */
 int populate_env_list(info_t *info)
 {
 	list_t *node = NULL;
-	size_t i;
+	size_t o;
 
-	for (i = 0; environ[i]; i++)
-		add_node_end(&node, environ[i], 0);
+	for (o = 0; environ[o]; o++)
+		add_node_end(&node, environ[o], 0);
 	info->env = node;
 	return (0);
 }
-

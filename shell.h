@@ -12,6 +12,7 @@
 #include <fcntl.h>
 #include <errno.h>
 
+
 /* for read/write buffers */
 #define READ_BUF_SIZE 1024
 #define WRITE_BUF_SIZE 1024
@@ -159,7 +160,7 @@ void *_realloc(void *, unsigned int, unsigned int);
 int bfree(void **);
 
 /* toem_atoi.c */
-int interactive(info_t *);
+int interactive(info_t *info);
 int is_delim(char, char *);
 int _isalpha(int);
 int _atoi(char *);

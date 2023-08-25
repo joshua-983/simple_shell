@@ -9,21 +9,22 @@
  */
 int _myexit(info_t *info)
 {
-    int status = 0;
+	int status = 0;
 
     /* If info.argv[0] is not "exit", return 0 */
-    if (_strcmp(info->argv[0], "exit") != 0)
-        return (0);
+	if (_strcmp(info->argv[0], "exit") != 0)
+	return (0);
 
-    /* If info.argv[1] is not NULL, convert it to an integer and assign it to status */
-    if (info->argv[1] != NULL)
-        status = _atoi(info->argv[1]);
+	 /* If info.argv[1] is not NULL, convert it to an integer */
+	if (info->argv[1] != NULL)
+	status = _atoi(info->argv[1]);
 
-    /* Free the info structure and its members */
-    free_info(info);
+	/* Free the info structure and its members */
+	free_info(info, 0);
+
 
     /* Exit the shell with the given status */
-    exit(status);
+	exit(status);
 }
 
 /**
@@ -44,7 +45,7 @@ int _mycd(info_t *info)
 	{
 		dir = _getenv(info, "HOME=");
 		if (!dir)
-			chdir_ret = /* TODO: what should this be? */
+			chdir_ret = 
 				chdir((dir = _getenv(info, "PWD=")) ? dir : "/");
 		else
 			chdir_ret = chdir(dir);
@@ -58,7 +59,7 @@ int _mycd(info_t *info)
 			return (1);
 		}
 		_puts(_getenv(info, "OLDPWD=")), _putchar('\n');
-		chdir_ret = /* TODO: what should this be? */
+		chdir_ret = /*what should this be? */
 			chdir((dir = _getenv(info, "OLDPWD=")) ? dir : "/");
 	}
 	else
